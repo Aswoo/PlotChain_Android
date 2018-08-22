@@ -1,0 +1,99 @@
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Light"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginEnd="8dp">
+
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="132dp"
+        android:layout_height="224dp">
+
+        <ImageView
+            android:id="@+id/image_vertical_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+
+        <TextView
+            android:id="@+id/tv_vertical_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/nanumsquareotfregular"
+            android:text="작품명"
+            android:maxLines="2"
+            android:textColor="#343a40"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@id/tv_vertical_writer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_vertical_thumbnail" />
+
+        <TextView
+            android:id="@+id/tv_vertical_writer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/nanumsquareotfregular"
+            android:text="TextView"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/gunmetal"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_vertical_title" />
+
+
+        <ImageView
+            android:id="@+id/btn_like"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_small_color"
+            app:layout_constraintBottom_toBottomOf="@id/tv_like_number"
+            app:layout_constraintEnd_toStartOf="@+id/tv_like_number"
+            app:layout_constraintTop_toTopOf="@+id/tv_like_number" />
+
+        <TextView
+            android:id="@+id/tv_like_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="#00FFFFFF"
+            android:text="10%"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_novel_episode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/nanumsquareotfregular"
+            android:text="10화"
+            android:textColor="#868a92"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_vertical_writer" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

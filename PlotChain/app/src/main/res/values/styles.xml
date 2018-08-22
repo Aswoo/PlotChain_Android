@@ -1,0 +1,45 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/gray_login_toolbar</item>
+
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- BottomNavigation theme. -->
+    <style name="BottomNavigation">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@drawable/navigation_bar_item_selector</item>
+        <item name="itemTextColor">@drawable/navigation_bar_item_selector</item>
+    </style>
+
+
+    <style name="NoToolbarThme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- TextInputLayout thmie. -->
+    <style name="CounterOverFlow" parent="TextAppearance.Design.Counter.Overflow">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/gray_text_input_hint</item>
+    </style>
+
+    <style name="TextAppearence.TextInputLayout.Black" parent="TextAppearance.AppCompat">
+       <item name="colorControlNormal">#33212529</item>
+        <item name="colorControlActivated">#212529</item>
+
+    </style>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="colorControlNormal">#dee0e4</item>
+        <item name="colorControlActivated">#212529</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
+</resources>

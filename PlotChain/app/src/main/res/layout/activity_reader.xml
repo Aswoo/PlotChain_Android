@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/reader_scroll"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <View
+            android:id="@+id/header_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></View>
+
+        <ImageView
+            android:id="@+id/btn_header_before"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/back_wh"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/header_view"
+            app:layout_constraintLeft_toLeftOf="@id/header_view"
+            app:layout_constraintTop_toTopOf="@id/header_view" />
+
+        <ImageView
+            android:id="@+id/btn_header_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_like_off"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/header_view"
+            app:layout_constraintRight_toRightOf="@id/header_view"
+            app:layout_constraintTop_toTopOf="@id/header_view" />
+
+
+        <ImageView
+            android:id="@+id/ig_header_ad"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#e9e9e9"
+            app:layout_constraintBottom_toTopOf="@id/tv_reader_subtitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_reader_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#212529"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ig_header_ad" />
+
+        <TextView
+            android:id="@+id/tv_reader_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="8sp"
+            android:textColor="#212529"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_reader_subtitle" />
+
+        <ImageView
+            android:id="@+id/ig_footer_ad"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:background="#e9e9e9"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_reader_content" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="AD"
+            app:layout_constraintBottom_toBottomOf="@+id/ig_header_ad"
+            app:layout_constraintEnd_toEndOf="@+id/ig_header_ad"
+            app:layout_constraintStart_toStartOf="@+id/ig_header_ad"
+            app:layout_constraintTop_toTopOf="@+id/ig_header_ad" />
+
+        <ImageView
+            android:id="@+id/btn_footer_favorite"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_bottom_star"
+            android:tint="@color/white"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+        <TextView
+            android:id="@+id/tv_footer_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="57,123"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+        <ImageView
+            android:id="@+id/btn_footer_comment"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_footer_comment"
+            android:tint="@color/white"
+            tools:layout_editor_absoluteX="111dp"
+            tools:layout_editor_absoluteY="262dp" />
+
+        <TextView
+            android:id="@+id/tv_footer_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1,123"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="135dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+        <View
+            android:id="@+id/footer_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"></View>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+</ScrollView>

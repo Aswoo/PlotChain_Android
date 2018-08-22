@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/header_view"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="#2e3237"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ig_intro_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/header_view"
+        app:layout_constraintStart_toStartOf="@+id/header_view"
+        app:layout_constraintTop_toTopOf="@+id/header_view"
+        app:srcCompat="@drawable/ic_back_arrow" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_intro_image"
+        android:layout_width="160dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="24dp"
+        android:background="#575d63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/header_view" />
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/pageIndicatorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toLeftOf="@id/vp_intro_image"
+        app:layout_constraintRight_toRightOf="@id/vp_intro_image"
+        app:layout_constraintTop_toBottomOf="@id/vp_intro_image"
+        app:piv_animationType="scale"
+        app:piv_dynamicCount="true"
+        app:piv_interactiveAnimation="true"
+        app:piv_padding="4dp"
+        app:piv_radius="4dp"
+        app:piv_selectedColor="@color/gunmetal"
+        app:piv_unselectedColor="#ced0d6"></com.rd.PageIndicatorView>
+
+    <View
+        android:id="@+id/devide_view"
+        android:layout_width="wrap_content"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="56dp"
+        android:background="#868a92"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vp_intro_image">
+
+    </View>
+
+    <EditText
+        android:id="@+id/et_intro_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="작품명을 입력해주세요."
+        android:textCursorDrawable="@drawable/cursor_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/devide_view" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_intro_genre"
+        app:layout_constraintVertical_chainStyle="spread_inside">
+
+        <EditText
+            android:id="@+id/et_write_intro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:fontFamily="@font/nanumsquareotfregular"
+            android:hint="줄거리를 입력하세요."
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textColor="#adb0b7"
+            android:textSize="14sp" />
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <View
+        android:id="@+id/btn_confirm"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquareotfbold"
+        android:text="확인"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_confirm"
+        app:layout_constraintEnd_toEndOf="@+id/btn_confirm"
+        app:layout_constraintStart_toStartOf="@+id/btn_confirm"
+        app:layout_constraintTop_toTopOf="@+id/btn_confirm" />
+
+    <View
+        android:id="@+id/view6"
+        android:layout_width="0dp"
+        android:layout_height="0.8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="#dee0e4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_intro_genre" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="0.8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="#dee0e4"
+        app:layout_constraintBottom_toBottomOf="@id/tv_intro_genre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_intro_genre"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:fontFamily="@font/nanumsquareotfbold"
+        android:gravity="center"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:text="장르를 선택해주세요."
+        android:textColor="#343a40"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_intro_title" />
+
+
+</android.support.constraint.ConstraintLayout>

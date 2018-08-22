@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/toolbar_view"
+        android:background="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <ImageView
+        android:id="@+id/ig_writer_back"
+        android:layout_width="24dp"
+        android:tint="@color/white"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/toolbar_view"
+        app:layout_constraintTop_toTopOf="@+id/toolbar_view"
+        app:srcCompat="@drawable/back_wh"/>
+
+
+    <TextView
+        android:id="@+id/tv_writer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:textSize="20sp"
+        android:text="박현준 작가님"
+        app:layout_constraintBottom_toBottomOf="@+id/ig_writer_back"
+        app:layout_constraintStart_toEndOf="@+id/ig_writer_back"
+        app:layout_constraintTop_toTopOf="@+id/ig_writer_back" />
+
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_wrtier_key"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ig_writer_heart">
+
+    </com.github.mikephil.charting.charts.LineChart>
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textSize="14sp"
+        android:textColor="@color/gunmetal"
+        android:text="나의 지분 현황"
+        android:fontFamily="@font/nanumsquareotfregular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_view" />
+
+    <TextView
+        android:id="@+id/tv_writer_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="전체 (3)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/invide_view" />
+
+
+    <View
+        android:id="@+id/invide_view"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray_view_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_wrtier_key" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_novels"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_writer_all"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fb_mypage_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        app:fabSize="normal"
+        android:backgroundTint="@color/black"
+        android:clickable="true"
+        app:borderWidth="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_mypage_pencil">
+
+    </android.support.design.widget.FloatingActionButton>
+
+    <ImageView
+        android:id="@+id/ig_writer_heart"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:srcCompat="@drawable/ic_like_color" />
+
+    <TextView
+        android:id="@+id/tv_writer_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:text="20%"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ig_writer_heart"
+        app:layout_constraintStart_toEndOf="@+id/ig_writer_heart"
+        tools:text="20%" />
+
+    <TextView
+        android:id="@+id/tv_wrtier_key"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:paddingTop="19dp"
+        android:paddingBottom="19dp"
+        android:text="개인 키 변경"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="#5c69fa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chart" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">PlotChain</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <!--bottom navigation view title -->
+    <string name="bottom_mybooks">"내 책장"</string>
+    <string name="bottom_market">"북마켓"</string>
+    <string name="bottom_analysis">"학습분석"</string>
+    <string name="bottom_unsolvedlist">"오답노트"</string>
+    <string name="bottom_qustion">"질분방"</string>
+
+    <!--err Message -->
+    <string name="err_code_1"></string>
+    <string name="err_code_2">"로그인이 필요합니다."</string>
+    <string name="err_code_3">"로그인 실패"</string>
+    <string name="err_code_4">"로그인 세션이 만료 되었습니다."</string>
+    <string name="err_code_5">"적절하지 않은 세션입니다."</string>
+    <string name="err_code_6">"이미 등록하신 작가분이네요"</string>
+
+    <string name="err_code_100">"이미 사용중인 닉네임닙니다."</string>
+    <string name="err_code_101">"이미 사용중인 이메일입니다."</string>
+    <string name="err_code_102">"닉네임이 올바르지 않습니다."</string>
+    <string name="err_code_103">"올바른 이메일 형식이 아닙니다."</string>
+    <string name="err_code_104">"잘못된 비밀번호입니다."</string>
+    <string name="err_code_500">"Server Error"</string>
+    <string name="err_code_changhoon">"Unstoppable,Amazing designer Mr. ChangHoon"</string>
+
+    <string name="write_and_read_external_storage">write_and_read_external_storage</string>
+</resources>

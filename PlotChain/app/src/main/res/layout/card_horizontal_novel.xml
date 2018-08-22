@@ -1,0 +1,119 @@
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardView.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp">
+
+        <ImageView
+            android:id="@+id/novel_image"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="12dp"
+            android:background="@color/gray_place_hodler"
+
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/novel_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="14dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="작품명"
+            android:textColor="@color/gray_nomal_text"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/shareholding_rate_image"
+            app:layout_constraintStart_toEndOf="@+id/novel_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/novel_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/nanumsquareotfregular"
+            android:text="장르"
+            android:textColor="@color/gray_nomal_text"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/novel_writer" />
+
+        <TextView
+            android:id="@+id/novel_writer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:text="작가명"
+            android:textColor="@color/gray_nomal_text"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/novel_episode"
+            app:layout_constraintStart_toEndOf="@+id/novel_image" />
+
+
+        <TextView
+            android:id="@+id/shareholding_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="2dp"
+            android:layout_marginEnd="12dp"
+            android:text="10%"
+            android:textColor="@color/gray_nomal_text"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/shareholding_rate_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/shareholding_rate_image" />
+
+        <ImageView
+            android:id="@+id/shareholding_rate_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginTop="15dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/shareholding_rate"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_small_color" />
+
+        <View
+            android:id="@+id/bottom_line"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="#26000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/novel_title" />
+
+        <TextView
+            android:id="@+id/novel_episode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/nanumsquareotfregular"
+            android:text="10화"
+            android:textColor="@color/gray_nomal_text"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/novel_read"
+            app:layout_constraintStart_toEndOf="@+id/novel_read"
+            app:layout_constraintTop_toTopOf="@+id/novel_read" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

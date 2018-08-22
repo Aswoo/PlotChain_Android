@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="장르 선택"
+        android:textColor="#212529"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="장르 선택" />
+
+    <TextView
+        android:id="@+id/tv_genre_fantasy"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="68dp"
+        android:background="@drawable/text_border"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:text="판타지"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_genre_romance"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_genre_romance"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:background="@drawable/text_border"
+        android:text="로맨스"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_genre_china"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_genre_fantasy"
+        app:layout_constraintTop_toTopOf="@+id/tv_genre_fantasy" />
+
+    <TextView
+        android:id="@+id/tv_genre_china"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:background="@drawable/text_border"
+        android:text="무협"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_genre_romance"
+        app:layout_constraintTop_toTopOf="@+id/tv_genre_romance" />
+
+    <TextView
+        android:id="@+id/tv_genre_game"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="24dp"
+        android:gravity="center"
+        android:text="게임"
+        android:background="@drawable/text_border"
+        app:layout_constraintEnd_toStartOf="@+id/tv_genre_think"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genre_fantasy" />
+
+    <TextView
+        android:id="@+id/tv_genre_bl"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:text="BL"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        android:background="@drawable/text_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_genre_think"
+        app:layout_constraintTop_toTopOf="@+id/tv_genre_think" />
+
+    <TextView
+        android:id="@+id/tv_genre_think"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:text="추리"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        android:background="@drawable/text_border"
+        app:layout_constraintEnd_toStartOf="@+id/tv_genre_bl"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_genre_game"
+        app:layout_constraintTop_toTopOf="@+id/tv_genre_game" />
+
+    <TextView
+        android:id="@+id/tv_genre_parody"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:text="팬픽"
+        android:background="@drawable/text_border"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_genre_light"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genre_game" />
+
+    <TextView
+        android:id="@+id/tv_genre_light"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:text="라이트 노벨"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        android:background="@drawable/text_border"
+        app:layout_constraintEnd_toStartOf="@+id/tv_genre_gl"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_genre_parody"
+        app:layout_constraintTop_toTopOf="@+id/tv_genre_parody" />
+
+    <TextView
+        android:id="@+id/tv_genre_gl"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+        android:gravity="center"
+        android:text="GL"
+        android:background="@drawable/text_border"
+        android:textColor="@color/gunmetal"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_genre_light"
+        app:layout_constraintTop_toTopOf="@+id/tv_genre_light" />
+
+    <TextView
+        android:id="@+id/tv_genre_cancle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquareotfbold"
+        android:paddingBottom="9dp"
+        android:paddingLeft="27dp"
+        android:paddingRight="27dp"
+        android:paddingTop="9dp"
+        android:text="CANCEL"
+
+        android:textColor="#343a40"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_genre_ok"
+        app:layout_constraintEnd_toStartOf="@+id/tv_genre_ok"
+        app:layout_constraintTop_toTopOf="@+id/tv_genre_ok" />
+
+    <TextView
+        android:id="@+id/tv_genre_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/nanumsquareotfbold"
+
+        android:paddingBottom="9dp"
+        android:paddingLeft="27dp"
+        android:paddingRight="27dp"
+        android:paddingTop="9dp"
+        android:text="OK"
+        android:textColor="#343a40"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_genre_gl"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genre_gl" />
+
+</android.support.constraint.ConstraintLayout>

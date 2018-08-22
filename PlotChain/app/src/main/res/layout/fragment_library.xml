@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+        <RelativeLayout
+            android:background="@color/black"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <TextView
+                android:fontFamily="@font/nanumsquareotfregular"
+                android:id="@+id/toolbar_text"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:text="내 서재"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"/>
+
+        </RelativeLayout>
+
+    <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F1F1F1"
+        android:fillViewport="true"
+        tools:ignore="MissingPrefix">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/readNovelBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:fontFamily="@font/nanumsquareotfbold"
+                android:includeFontPadding="false"
+                android:text="읽은 작품"
+                android:textColor="#adb0b7"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@+id/likenovelBtn"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/likenovelBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:background="#ffffff"
+                android:fontFamily="@font/nanumsquareotfbold"
+                android:includeFontPadding="false"
+                android:text="좋아요"
+                android:textColor="#adb0b7"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/readNovelBtn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/readnovelView"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                app:layout_constraintLeft_toLeftOf="@+id/readNovelBtn"
+                app:layout_constraintRight_toRightOf="@+id/readNovelBtn"
+                app:layout_constraintTop_toBottomOf="@+id/likenovelBtn" />
+
+            <View
+                android:id="@+id/likenovelView"
+                android:visibility="gone"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="#000000"
+                app:layout_constraintLeft_toLeftOf="@+id/likenovelBtn"
+                app:layout_constraintRight_toRightOf="@+id/likenovelBtn"
+                app:layout_constraintTop_toBottomOf="@+id/likenovelBtn" />
+
+
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/avloading"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:indicatorName="LineScaleIndicator"
+                />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/libraryRecyclerview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/likenovelView">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

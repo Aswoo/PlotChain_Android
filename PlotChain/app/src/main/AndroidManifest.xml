@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.yunseung_u.plotchain">
+
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo_icon"
+        android:supportsRtl="true"
+        tools:replace="android:icon"
+        android:theme="@style/SplashTheme">
+        <activity
+            android:name=".ui.activity.SplashAcitivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.activity.MainActivity"></activity>
+        <activity android:name=".ui.activity.LoginActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".ui.activity.RegisterStepActivity"></activity>
+        <activity android:name=".ui.activity.WriteNovelAcitvity"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".ui.activity.NovelInfoPageAcitivty"></activity>
+        <activity android:name=".ui.activity.WriteIntroActivity"></activity>
+        <activity android:name=".ui.activity.ReaderActivity"></activity>
+        <activity android:name=".ui.activity.WriterInfoActivity"></activity>
+        <activity android:name=".ui.activity.StartActivity"></activity>
+
+
+    </application>
+
+</manifest>
