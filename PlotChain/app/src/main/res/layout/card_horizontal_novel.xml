@@ -31,11 +31,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="16dp"
             android:ellipsize="end"
+            android:fontFamily="@font/nanumsquareotfbold"
             android:maxLines="1"
             android:text="작품명"
-            android:textColor="@color/gray_nomal_text"
+            android:textColor="#212529"
             android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/shareholding_rate_image"
             app:layout_constraintStart_toEndOf="@+id/novel_image"
@@ -45,25 +46,24 @@
             android:id="@+id/novel_read"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="12dp"
             android:fontFamily="@font/nanumsquareotfregular"
             android:text="장르"
-            android:textColor="@color/gray_nomal_text"
+            android:textColor="@color/gunmetal"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/novel_image"
             app:layout_constraintStart_toStartOf="@+id/novel_writer" />
 
         <TextView
             android:id="@+id/novel_writer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
             android:text="작가명"
             android:textColor="@color/gray_nomal_text"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/novel_episode"
-            app:layout_constraintStart_toEndOf="@+id/novel_image" />
+            app:layout_constraintStart_toStartOf="@+id/novel_title"
+            app:layout_constraintTop_toBottomOf="@+id/novel_title" />
 
 
         <TextView
@@ -74,7 +74,7 @@
             android:layout_marginBottom="2dp"
             android:layout_marginEnd="12dp"
             android:text="10%"
-            android:textColor="@color/gray_nomal_text"
+            android:textColor="#868a92"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/shareholding_rate_image"
             app:layout_constraintEnd_toEndOf="parent"
@@ -94,8 +94,8 @@
         <View
             android:id="@+id/bottom_line"
             android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="#26000000"
+            android:layout_height="0.8dp"
+            android:background="#dee0e4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/novel_title" />
@@ -107,7 +107,7 @@
             android:layout_marginStart="4dp"
             android:fontFamily="@font/nanumsquareotfregular"
             android:text="10화"
-            android:textColor="@color/gray_nomal_text"
+            android:textColor="#868a92"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/novel_read"
             app:layout_constraintStart_toEndOf="@+id/novel_read"

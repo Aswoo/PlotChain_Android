@@ -44,12 +44,12 @@ public class EpisodeRecyclerViewAdapter extends RecyclerView.Adapter<EpisodeRecy
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EpisodeRecyclerViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final EpisodeRecyclerViewAdapter.ViewHolder holder, final int position) {
 
         final Episode episodeObj = mEpisodes.get(position);
 
 
-        holder.episodeCreated.setText(episodeObj.getCreateData());
+        holder.episodeCreated.setText((episodeObj.getCreateData()).substring(0,10));
         holder.episodeNum.setText(String.valueOf(position+1));
         holder.episodeSubTitle.setText(episodeObj.getSubtitle());
 
@@ -61,6 +61,7 @@ public class EpisodeRecyclerViewAdapter extends RecyclerView.Adapter<EpisodeRecy
                 String nid = ((NovelInfoPageAcitivty)mContext).getNovelid();
                 intent.putExtra("eid",episodeObj.getEpsodeid());
                 intent.putExtra("nid",nid);
+                intent.putExtra("title",holder.episodeSubTitle.toString());
                 mContext.startActivity(intent);
             }
         });

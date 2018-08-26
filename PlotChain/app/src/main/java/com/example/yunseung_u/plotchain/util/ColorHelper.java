@@ -11,7 +11,7 @@ public class ColorHelper {
                 color = "#575d63";
                 break;
             case 1:
-                color = "#bec3cd";
+                color = "#dde1e9";
                 break;
             case 2:
                 color = "#ffa8a8";
@@ -45,7 +45,7 @@ public class ColorHelper {
                 color = "#2e3237";
                 break;
             case 1:
-                color = "#dde1e9";
+                color = "#bec3cd";
                 break;
             case 2:
                 color = "#ff8787";
@@ -69,4 +69,38 @@ public class ColorHelper {
         return color;
 
     }
+    public static String backgourndToColorFromColor(String color){
+
+        String colorCode = "";
+
+        switch (color){
+            case "#575d63":
+                colorCode = "#2e3237";
+                break;
+            case "#dde1e9":
+                colorCode = "#bec3cd";
+                break;
+            case "#ffa8a8":
+                colorCode = "#ff8787";
+                break;
+            case "#bfa9ff":
+                colorCode = "#a88cfa";
+                break;
+            case "#7ce3ff":
+                colorCode = "#59dbff";
+                break;
+            case "#6cb8ff":
+                colorCode = "#4fa8fc";
+                break;
+            case "#63e6be":
+                colorCode = "#37d9a9";
+                break;
+            case "#ffca8d":
+                colorCode = "#ffbd71";
+                break;
+        }
+        return colorCode;
+
+    }
+
 }

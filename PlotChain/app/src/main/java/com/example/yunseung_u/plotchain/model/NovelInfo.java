@@ -18,7 +18,7 @@ public class NovelInfo {
     private String author;
     @Expose
     @SerializedName("genre")
-    private String genre;
+    private int genre;
     @Expose
     @SerializedName("state")
     private String state;
@@ -56,16 +56,16 @@ public class NovelInfo {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getGenre() {
+    public int getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(int genre) {
         this.genre = genre;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getColor() {

@@ -2,9 +2,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/CardView.Light"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    app:cardElevation="0dp"
     android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginBottom="8dp"
@@ -12,12 +12,15 @@
 
     <android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="132dp"
+        android:background="@drawable/border_vertical_cardview"
         android:layout_height="224dp">
 
         <ImageView
             android:id="@+id/image_vertical_thumbnail"
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginStart="1dp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +35,10 @@
             android:layout_marginEnd="12dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="14dp"
-            android:fontFamily="@font/nanumsquareotfregular"
+            android:fontFamily="@font/nanumsquareotfbold"
             android:text="작품명"
             android:maxLines="2"
-            android:textColor="#343a40"
+            android:textColor="#212529"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/tv_vertical_writer"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +68,7 @@
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_marginEnd="4dp"
+            android:layout_marginTop="2dp"
             android:src="@drawable/ic_small_color"
             app:layout_constraintBottom_toBottomOf="@id/tv_like_number"
             app:layout_constraintEnd_toStartOf="@+id/tv_like_number"
@@ -89,7 +93,7 @@
             android:fontFamily="@font/nanumsquareotfregular"
             android:text="10화"
             android:textColor="#868a92"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/tv_vertical_writer" />
 

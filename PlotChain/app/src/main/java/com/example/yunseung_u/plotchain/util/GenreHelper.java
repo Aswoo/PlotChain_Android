@@ -21,6 +21,7 @@ public class GenreHelper {
                 break;
             case "추리":
                 genreCode =4;
+                break;
             case "팬픽":
                 genreCode = 5;
                 break;

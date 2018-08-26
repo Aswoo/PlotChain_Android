@@ -49,7 +49,7 @@
         android:layout_height="200dp"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_wrtier_key"
+        app:layout_constraintBottom_toTopOf="@+id/tv_wrtier_wallet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +90,7 @@
         android:background="@color/gray_view_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_wrtier_key" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_wrtier_wallet" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_novels"
@@ -144,19 +144,19 @@
         tools:text="20%" />
 
     <TextView
-        android:id="@+id/tv_wrtier_key"
+        android:id="@+id/tv_wrtier_wallet"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:paddingTop="19dp"
-        android:paddingBottom="19dp"
-        android:text="개인 키 변경"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:gravity="center"
         android:background="#5c69fa"
+        android:gravity="center"
+        android:paddingBottom="19dp"
+        android:paddingTop="19dp"
+        android:text="지갑 주소 변경"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chart" />

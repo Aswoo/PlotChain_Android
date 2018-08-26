@@ -47,6 +47,7 @@
         android:layout_marginLeft="16dp"
         android:text="내정보"
         android:textSize="18sp"
+        android:fontFamily="@font/nanumsquareotfregular"
         app:layout_constraintBottom_toBottomOf="@id/myinfo_view"
         app:layout_constraintLeft_toLeftOf="@id/myinfo_view"
         app:layout_constraintTop_toTopOf="@id/myinfo_view" />
@@ -66,7 +67,7 @@
         android:id="@+id/tv_mypage_comment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:fontFamily="@font/nanumsquareotfregular"
         android:layout_marginLeft="16dp"
         android:text="내가 남긴 댓글"
         android:textSize="18sp"
@@ -90,7 +91,7 @@
         android:id="@+id/tv_mypage_setting"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:fontFamily="@font/nanumsquareotfregular"
         android:layout_marginLeft="16dp"
         android:text="설정"
         android:textSize="18sp"
@@ -112,7 +113,7 @@
         android:id="@+id/tv_mypage_notice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:fontFamily="@font/nanumsquareotfregular"
         android:layout_marginLeft="16dp"
         android:text="공지사항"
         android:textSize="18sp"
@@ -134,8 +135,7 @@
         android:id="@+id/tv_mypage_service"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
-
+        android:fontFamily="@font/nanumsquareotfregular"
         android:layout_marginLeft="16dp"
         android:text="고객센터"
         android:textSize="18sp"
@@ -159,7 +159,6 @@
         android:id="@+id/writer_view"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -170,7 +169,7 @@
         android:id="@+id/tv_mypage_writer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-
+        android:fontFamily="@font/nanumsquareotfregular"
         android:layout_marginLeft="16dp"
         android:text="작가 페이지"
         android:textSize="18sp"
@@ -182,12 +181,12 @@
         android:id="@+id/fb_writepage_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="24dp"
-        app:fabSize="normal"
-
         android:backgroundTint="@color/black"
         android:clickable="true"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_mypage_pencil" />

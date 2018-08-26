@@ -70,6 +70,7 @@ public class MyPageFragment extends Fragment {
         mUnbinder = ButterKnife.bind(this,view);
 
 
+
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

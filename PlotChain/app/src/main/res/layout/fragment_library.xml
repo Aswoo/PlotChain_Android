@@ -33,7 +33,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F1F1F1"
+        android:background="@color/white"
         android:fillViewport="true"
         tools:ignore="MissingPrefix">
 
@@ -41,30 +41,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <Button
+            <TextView
                 android:id="@+id/readNovelBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
                 android:fontFamily="@font/nanumsquareotfbold"
+                android:gravity="center"
                 android:includeFontPadding="false"
+                android:paddingBottom="16dp"
+                android:paddingLeft="62dp"
+                android:paddingRight="62dp"
+                android:paddingTop="16dp"
                 android:text="읽은 작품"
                 android:textColor="#adb0b7"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/likenovelBtn"
                 app:layout_constraintEnd_toStartOf="@+id/likenovelBtn"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <TextView
                 android:id="@+id/likenovelBtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
                 android:background="#ffffff"
                 android:fontFamily="@font/nanumsquareotfbold"
                 android:includeFontPadding="false"
                 android:text="좋아요"
+                android:gravity="center"
+                android:paddingLeft="70dp"
+                android:paddingRight="70dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
                 android:textColor="#adb0b7"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -91,22 +101,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/likenovelBtn" />
 
 
-            <com.wang.avi.AVLoadingIndicatorView
-                android:id="@+id/avloading"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:indicatorName="LineScaleIndicator"
-                />
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/libraryRecyclerview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="12dp"
+                android:background="#ffffff"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

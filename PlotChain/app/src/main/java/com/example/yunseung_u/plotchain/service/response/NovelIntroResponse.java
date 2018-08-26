@@ -51,6 +51,18 @@ public class NovelIntroResponse {
     @SerializedName("isHeart")
     boolean isHeart;
 
+    public Double getTotalHeart() {
+        return totalHeart;
+    }
+
+    public void setTotalHeart(Double totalHeart) {
+        this.totalHeart = totalHeart;
+    }
+
+    @Expose
+    @SerializedName("totalHeart")
+    Double totalHeart;
+
     public String getColor() {
         return color;
     }

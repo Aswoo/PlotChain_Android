@@ -22,6 +22,7 @@ import com.example.yunseung_u.plotchain.service.response.EpisodeGetResponse;
 import com.example.yunseung_u.plotchain.service.response.NovelIntroResponse;
 import com.example.yunseung_u.plotchain.ui.adapter.EpisodeRecyclerViewAdapter;
 import com.example.yunseung_u.plotchain.ui.adapter.RisingReyclerViewAdapter;
+import com.example.yunseung_u.plotchain.util.ColorHelper;
 import com.example.yunseung_u.plotchain.util.GenreHelper;
 import com.example.yunseung_u.plotchain.util.api.BaseApiService;
 import com.example.yunseung_u.plotchain.util.api.UtilsApi;
@@ -41,7 +42,7 @@ public class NovelInfoPageAcitivty extends AppCompatActivity {
 
 
     @BindView(R.id.thumbnail_view)
-    View thumbnailView;
+    ImageView thumbnailView;
     @BindView(R.id.ig_info_image)
     ImageView novelImgae;
     @BindView(R.id.tv_info_title)
@@ -111,7 +112,7 @@ public class NovelInfoPageAcitivty extends AppCompatActivity {
     }
     @OnClick(R.id.ig_info_back)
     public void onClickBack(){
-        finish();
+        onBackPressed();
     }
 
     @OnClick(R.id.ig_info_sort)
@@ -131,6 +132,7 @@ public class NovelInfoPageAcitivty extends AppCompatActivity {
         String nid = novelid;
         intent.putExtra("eid","0");
         intent.putExtra("nid",nid);
+        intent.putExtra("title",novelTitle.toString());
         startActivity(intent);
     }
     @OnClick(R.id.ig_info_heartsend)
@@ -198,18 +200,18 @@ public class NovelInfoPageAcitivty extends AppCompatActivity {
 
     public void requestNovelData(String id){
 
-        loading = ProgressDialog.show(this, null, "Loading...", true, false);
-
+        loading = ProgressDialog.show(this, null, "Login...", true, false);
         User user = PlotChainApplication.getCurrentUser();
         baseApiService.getNovelIntro(id,user.getSession())
                 .enqueue(new Callback<NovelIntroResponse>() {
                     @Override
                     public void onResponse(Call<NovelIntroResponse> call, Response<NovelIntroResponse> response) {
-                        loading.hide();
-                        if(response.isSuccessful()){
 
+                        if(response.isSuccessful()) {
                            NovelIntroResponse novelIntroResponse = response.body();
 
+
+                           Double totalHeart = novelIntroResponse.getTotalHeart();
                            //작품명. 작가명, 장르, 연재중
                            novelTitle.setText(novelIntroResponse.getTitle());
                            novelAuthor.setText(novelIntroResponse.getAuthor());
@@ -225,18 +227,23 @@ public class NovelInfoPageAcitivty extends AppCompatActivity {
                                    "전체 (" +
                                    String.valueOf(novelIntroResponse.getEpisodeCount())
                            + ")");
-                            Double heartNum = novelIntroResponse.getHeart();
-                            novelHeart.setText(String.valueOf(novelIntroResponse.getHeart()) + "%");
+                            Double heartNum = novelIntroResponse.getHeart() / totalHeart * 100;
+                            String Sum = String.format("%.2f",heartNum);
+                            novelHeart.setText(Sum + "%");
                             novelImgae.setBackgroundColor(Color.parseColor(novelIntroResponse.getColor()));
-                            thumbnailView.setBackgroundColor(Color.parseColor(novelIntroResponse.getColor()));
+                            String bgcolor = ColorHelper.backgourndToColorFromColor(novelIntroResponse.getColor());
+
+                            thumbnailView.setBackgroundColor(Color.parseColor((bgcolor)));
                             //novelHeartSend.setImageDrawable(getDrawable(R.drawable.ic_like_on));
 
                         }
+
+                        loading.dismiss();
                     }
 
                     @Override
                     public void onFailure(Call<NovelIntroResponse> call, Throwable t) {
-                        loading.hide();
+                        loading.dismiss();
                     }
                 });
 

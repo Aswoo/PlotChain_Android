@@ -1,5 +1,6 @@
 package com.example.yunseung_u.plotchain.ui.Fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.yunseung_u.plotchain.R;
 import com.example.yunseung_u.plotchain.application.PlotChainApplication;
@@ -55,14 +57,25 @@ public class HomeFragment extends Fragment {
     private BaseApiService baseApiService;
 
     ArrayList<NovelInfo> mArrayNovels;
+
+    public Double getTotalHeartß() {
+        return TotalHeart;
+    }
+
+    public void setTotalHeart(Double totalTime) {
+        TotalHeart = totalTime;
+    }
+
     ArrayList<NovelInfo> mRisingNovel;
+
+    private Double TotalHeart;
 
     private Unbinder mUnbinder = null;
 
-    private boolean isLoading = false;
-    private boolean isLastPage = false;
+    private ProgressDialog loadingDialog;
+    private boolean isLoadingRising = false;
+    private boolean isLoadingRanked = false;
     private static final int PAGE_START = 0;
-    private int currentPage = PAGE_START;
 
 
     public HomeFragment() {
@@ -79,6 +92,11 @@ public class HomeFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
+        isLoadingRising = true;
+        isLoadingRanked = true;
+        loadingDialog = ProgressDialog.show(getActivity(), null, "Loading...", true, false);
+
         getRisingNovelList();
         getRankedNovelList();
         mRankedAdapter.notifyDataSetChanged();
@@ -119,9 +137,6 @@ public class HomeFragment extends Fragment {
         mRisingNovelRecyclerView.addOnScrollListener(new PaginationScrollListener(verticallayoutManager) {
             @Override
             protected void loadMoreItems() {
-                isLoading = true;
-                currentPage += 25;
-
                 // mocking network delay for API call
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -186,58 +201,72 @@ public class HomeFragment extends Fragment {
         baseApiService = UtilsApi.getAPIService();
         //initDataset();
 
-
     }
 
 
     public void getRankedNovelList(){
         User user = PlotChainApplication.getCurrentUser();
-        baseApiService.getRankedNovel(user.getSession(),"1",0)
+        baseApiService.getRankedNovel(user.getSession(),"0",0)
                 .enqueue(new Callback<NovelGetResponse>() {
                     @Override
                     public void onResponse(Call<NovelGetResponse> call, Response<NovelGetResponse> response) {
                         if(response.isSuccessful()){
                             NovelGetResponse novelResponse = response.body();
 
-
+                            TotalHeart = novelResponse.getTotalHeart();
                             ArrayList<NovelInfo> result = novelResponse.getArrayList();
                             mArrayNovels = result;
                             mRankedAdapter.setmNovels(mArrayNovels);
+                            mRankedAdapter.setTotalHeart(TotalHeart);
                             mRankedAdapter.notifyDataSetChanged();
-
                         }
+
+                        isLoadingRanked = false;
+
+                        if (!isLoadingRising)
+                            loadingDialog.hide();
                     }
 
                     @Override
                     public void onFailure(Call<NovelGetResponse> call, Throwable t) {
+                        isLoadingRanked = false;
 
+                        if (!isLoadingRising)
+                            loadingDialog.hide();
                     }
                 });
     }
 
     public void getRisingNovelList() {
-
         User user = PlotChainApplication.getCurrentUser();
 
-        baseApiService.getRecentlyNovel(user.getSession(),"0",0)
+        baseApiService.getRecentlyNovel(user.getSession(),"1",0)
                 .enqueue(new Callback<NovelGetResponse>() {
                     @Override
                     public void onResponse(Call<NovelGetResponse> call, Response<NovelGetResponse> response) {
-
                         if(response.isSuccessful()){
                             NovelGetResponse novelResponse = response.body();
 
                             ArrayList<NovelInfo> result = novelResponse.getArrayList();
                             mRisingNovel = result;
                             mRisingAdapter.setMovies(mRisingNovel);
+                            mRisingAdapter.setTotalTime( novelResponse.getTotalHeart());
                             mRisingAdapter.notifyDataSetChanged();
                             //mRisingAdapter.addAll(result);
                         }
+
+                        isLoadingRising = false;
+
+                        if (!isLoadingRanked)
+                            loadingDialog.hide();
                     }
 
                     @Override
                     public void onFailure(Call<NovelGetResponse> call, Throwable t) {
-                        Log.d("Response Fail :", "fail to get novel response");
+                        isLoadingRising = false;
+
+                        if (!isLoadingRanked)
+                            loadingDialog.hide();
                     }
                 });
     }

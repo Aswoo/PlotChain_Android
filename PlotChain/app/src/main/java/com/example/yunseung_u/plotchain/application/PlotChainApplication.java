@@ -13,7 +13,7 @@ public class PlotChainApplication extends Application {
 
     private static Retrofit retrofit = null;
     private static final String TEST_URL = "http://192.168.5.145";
-    private static final String BASIC_URL = "http://plotchain.net/";
+    private static final String BASIC_URL = "http://13.125.144.1/";
     private static  User currentUser = new User();
 
 

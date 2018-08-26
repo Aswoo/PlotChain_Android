@@ -12,6 +12,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -34,6 +35,7 @@ import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -54,6 +56,12 @@ public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.btn_login)
     View viewLogin;
+
+    @OnClick(R.id.btn_login_back)
+    public void onClickBack() {
+        onBackPressed();
+    }
+
     ProgressDialog loading;
 
     Context mContext;
@@ -69,11 +77,18 @@ public class LoginActivity extends AppCompatActivity {
         setTheme(R.style.NoToolbarThme);
         setContentView(R.layout.activity_login_second);
 
+
         //getSupportActionBar().hide();
 
-
-
         ButterKnife.bind(this);
+
+
+        etEmail.requestFocus();
+        //키보드 보이게 하는 부분
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         mContext = this;
@@ -85,57 +100,24 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //ValidCheck();
+                //loading = new ProgressDialog(mContext, R.style.MyAlertDialogStyle);
                 loading = ProgressDialog.show(mContext, null, "Login...", true, false);
                 //requestLogin();
                 requestJSONLogin();
 
             }
         });
-
-        // Code berikut berfungsi untuk mengecek session, Jika session true ( sudah login )
-        // maka langsung memulai MainActivity.
-        /*
-        if (sharedPrefManager.getSPSudahLogin()){
-            User user = new User()
-            startActivity(new Intent(LoginActivity.this, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
-        }
-        */
     }
 
-    /*
-    private boolean isvalid(AppCompatEditText email, AppCompatEditText password){
-
-        mEditTextEmail.setError(null);
-        mEditTextPassword.setError(null);
-
-        if (validCheck.isEmail(email)) {
-            mEditTextEmail.setError("Email is required");
-            return false;
-        } else if (!validCheck.isEmail(email)) {
-            mEditTextEmail.setError("Enter a valid email");
-            return false;
-        }
-
-        if (validCheck.isEmpty(password)) {
-            mEditTextPassword.setError("Password is required");
-            return false;
-        }
-        return true;
-
-    }
-    */
-
-    public static boolean isEmailValid(String email){
+    public static boolean isEmailValid(String email) {
         Pattern pattern = Patterns.EMAIL_ADDRESS;
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 
-    public void showDialog(String errMsg){
+    public void showDialog(String errMsg) {
 
-        switch(errMsg) {
+        switch (errMsg) {
             case "100":
                 new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                         .setTitleText("Error")
@@ -171,33 +153,34 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void requestJSONLogin(){
+    private void requestJSONLogin() {
 
-        final User user = new User("",etEmail.getText().toString(),etPassword.getText().toString());
+        final User user = new User("", etEmail.getText().toString(), etPassword.getText().toString());
         mApiService.loginJSONRequest(user)
-                .enqueue(new Callback<ResponseBody>(){
+                .enqueue(new Callback<ResponseBody>() {
                     @Override
-                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response){
-                        if (response.isSuccessful()){
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        if (response.isSuccessful()) {
                             loading.dismiss();
                             try {
                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
-                                if (jsonRESULTS.getString("success").equals("true")){
+                                if (jsonRESULTS.getString("success").equals("true")) {
 
 
                                     String name = jsonRESULTS.getString("nickname");
                                     sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, name);
                                     sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
 
-                                    User user = new User(name,etEmail.getText().toString(),etPassword.getText().toString());
+                                    User user = new User(name, etEmail.getText().toString(), etPassword.getText().toString());
                                     user.setSession(jsonRESULTS.getString("session"));
+                                    user.setmAddress(jsonRESULTS.getString("address"));
                                     PlotChainApplication.setCurrentUser(user);
 
-                                    startActivity(new Intent(mContext,MainActivity.class)
-                                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                                    finish();
+                                    startActivity(new Intent(mContext, MainActivity.class));
+                                    //finish();
                                 } else {
                                     // Jika login gag
+                                    loading.dismiss();
                                     String error_message = jsonRESULTS.getString("error_msg");
                                     Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
                                 }
@@ -222,7 +205,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void ValidCheck() {
 
-        if (isEmpty(etEmail)){
+        if (isEmpty(etEmail)) {
 
             new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
                     .setTitleText("Error")
@@ -248,7 +231,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public boolean isEmail(EditText text){
+    public boolean isEmail(EditText text) {
         CharSequence email = text.getText().toString();
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
 

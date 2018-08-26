@@ -11,12 +11,13 @@
         android:layout_height="match_parent">
 
 
-        <View
+        <ImageView
             android:id="@+id/thumbnail_view"
             android:layout_width="match_parent"
             android:layout_height="88dp"
-            android:backgroundTint="#b3000000"
-            android:backgroundTintMode="src_in"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/ig_info_back"
@@ -55,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="@font/nanumsquareotfregular"
+            android:fontFamily="@font/nanumsquareotfbold"
             android:text="하이퍼 백엔드 디벨로퍼"
             android:textColor="@color/black"
             android:textSize="20sp"
@@ -115,6 +116,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="12dp"
+            android:background="#dee0e4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_info_des" />
@@ -123,9 +125,8 @@
             android:id="@+id/view2"
             android:layout_width="match_parent"
             android:layout_height="0.8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
+            android:background="#dee0e4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -178,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:fontFamily="@font/nanumsquareotfbold"
+            android:fontFamily="@font/nanumsquareotfregular"
             android:text="100 개"
             android:textColor="#212529"
             android:textSize="16dp"

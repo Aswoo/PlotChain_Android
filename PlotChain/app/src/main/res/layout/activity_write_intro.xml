@@ -16,16 +16,17 @@
 
     <ImageView
         android:id="@+id/ig_intro_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:tint="@color/white"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/header_view"
         app:layout_constraintStart_toStartOf="@+id/header_view"
         app:layout_constraintTop_toTopOf="@+id/header_view"
-        app:srcCompat="@drawable/ic_back_arrow" />
+        app:srcCompat="@drawable/back_wh" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_intro_image"
@@ -54,32 +55,20 @@
         app:piv_selectedColor="@color/gunmetal"
         app:piv_unselectedColor="#ced0d6"></com.rd.PageIndicatorView>
 
-    <View
-        android:id="@+id/devide_view"
-        android:layout_width="wrap_content"
-        android:layout_height="0.8dp"
-        android:layout_marginTop="56dp"
-        android:background="#868a92"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vp_intro_image">
-
-    </View>
-
     <EditText
         android:id="@+id/et_intro_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="42dp"
         android:background="@null"
         android:gravity="center"
         android:hint="작품명을 입력해주세요."
         android:textCursorDrawable="@drawable/cursor_color"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/devide_view" />
+        app:layout_constraintTop_toBottomOf="@+id/pageIndicatorView" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -104,7 +93,7 @@
             android:fontFamily="@font/nanumsquareotfregular"
             android:hint="줄거리를 입력하세요."
             android:textCursorDrawable="@drawable/cursor_color"
-            android:textColor="#adb0b7"
+            android:textColor="#000000"
             android:textSize="14sp" />
 
     </android.support.v4.widget.NestedScrollView>
@@ -114,6 +103,7 @@
         android:id="@+id/btn_confirm"
         android:layout_width="0dp"
         android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
@@ -163,7 +153,9 @@
         android:id="@+id/tv_intro_genre"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/nanumsquareotfbold"
         android:gravity="center"
         android:paddingBottom="16dp"
@@ -172,7 +164,6 @@
         android:textColor="#343a40"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_intro_title" />
 

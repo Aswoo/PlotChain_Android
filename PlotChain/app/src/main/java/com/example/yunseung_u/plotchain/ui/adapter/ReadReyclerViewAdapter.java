@@ -74,7 +74,7 @@ public class ReadReyclerViewAdapter extends RecyclerView.Adapter<ReadReyclerView
 
         final NovelInfo readNovelObj = historyList.get(position).getNovelInfo();
         final String readDate = historyList.get(position).getReadDate();
-        holder.novelReadDate.setText(readDate.substring(0,9));
+        holder.novelReadDate.setText(readDate.substring(0,10));
         holder.novelTitle.setText(readNovelObj.getName());
 
         if(readNovelObj.isHeart()){

@@ -33,7 +33,7 @@ public class SplashAcitivity extends Activity implements EasyPermissions.Permiss
             Intent intent = new Intent(this, StartActivity.class);
             intent.putExtra("state", "launch");
             startActivity(intent);
-            finish();
+            //finish();
         } else {
             EasyPermissions.requestPermissions(this, "We need permissions because this and that",
                     123, perms);
@@ -53,7 +53,7 @@ public class SplashAcitivity extends Activity implements EasyPermissions.Permiss
         Intent intent = new Intent(this, StartActivity.class);
         intent.putExtra("state", "launch");
         startActivity(intent);
-        finish();
+        //finish();
     }
 
     @Override

@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.yunseung_u.plotchain.R;
 import com.example.yunseung_u.plotchain.model.NovelInfo;
 import com.example.yunseung_u.plotchain.ui.activity.NovelInfoPageAcitivty;
+import com.example.yunseung_u.plotchain.util.GenreHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,17 @@ public class RisingReyclerViewAdapter extends RecyclerView.Adapter<RisingReycler
     //vars
     private ArrayList<NovelInfo> mNovels;
     private Context mContext;
+    private Double totalTime;
 
-    public RisingReyclerViewAdapter(Context mContext,ArrayList<NovelInfo> mNovels) {
+    public Double getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(Double totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public RisingReyclerViewAdapter(Context mContext, ArrayList<NovelInfo> mNovels) {
         this.mNovels = mNovels;
         this.mContext = mContext;
     }
@@ -75,7 +85,9 @@ public class RisingReyclerViewAdapter extends RecyclerView.Adapter<RisingReycler
 
                 holder.novelTitle.setText(novelObject.getName());
                 holder.novelWriter.setText(novelObject.getAuthor());
-                holder.novelShareholdingView.setText(novelObject.getHeart().toString());
+                Double heartRate = novelObject.getHeart()/getTotalTime()*100;
+                String heart = String.format("%.2f",heartRate);
+                holder.novelShareholdingView.setText(heart+"%");
                 holder.novelThumbnail.setBackgroundColor(Color.parseColor(novelObject.getColor()));
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -83,10 +95,10 @@ public class RisingReyclerViewAdapter extends RecyclerView.Adapter<RisingReycler
                         Intent intent = new Intent(mContext, NovelInfoPageAcitivty.class);
                         intent.putExtra("id",novelObject.getId());
                         mContext.startActivity(intent);
-
                     }
                 });
-                holder.novelGenre.setText(novelObject.getGenre());
+                holder.novelGenre.setText(GenreHelper.switchCodeToString(novelObject.getGenre()));
+                holder.novelEpisode.setText(novelObject.getEpisodeCount());
                 break;
             case LOADING:
                 //Do nothing

@@ -1,5 +1,6 @@
 package com.example.yunseung_u.plotchain.ui.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import com.rd.PageIndicatorView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -68,6 +70,8 @@ public class WriteIntroActivity extends AppCompatActivity {
 
     private String currentColor = "";
 
+    ProgressDialog loading;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +96,7 @@ public class WriteIntroActivity extends AppCompatActivity {
 
     @OnClick(R.id.ig_intro_back)
     public void onClickBack(){
-        finish();
+        onBackPressed();
     }
 
 
@@ -116,6 +120,8 @@ public class WriteIntroActivity extends AppCompatActivity {
     @OnClick(R.id.btn_confirm)
     public void onClickRegsiter(){
 
+        //loading = new ProgressDialog(this,R.style.MyAlertDialogStyle);
+        loading = ProgressDialog.show(this, null, "Loading...", true, false);
         User user = PlotChainApplication.getCurrentUser();
 
         int genreCode = switchStringToCode(introNovelGenre.getText().toString());
@@ -129,14 +135,17 @@ public class WriteIntroActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 Log.d(TAG,"Success");
-                Intent intent = new Intent(WriteIntroActivity.this,WriteNovelAcitvity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+
+                loading.dismiss();
+                //Intent intent = new Intent(WriteIntroActivity.this,WriteNovelAcitvity.class);
+                //startActivity(intent);
+                finish();
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
 
+                loading.dismiss();
                 Toast.makeText(WriteIntroActivity.this,"업로드 실패",Toast.LENGTH_LONG).show();
 
             }

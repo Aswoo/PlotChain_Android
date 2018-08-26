@@ -175,12 +175,12 @@
 
         android:textColor="#343a40"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_genre_ok"
-        app:layout_constraintEnd_toStartOf="@+id/tv_genre_ok"
-        app:layout_constraintTop_toTopOf="@+id/tv_genre_ok" />
+        app:layout_constraintBottom_toBottomOf="@+id/tv_wallet_ok"
+        app:layout_constraintEnd_toStartOf="@+id/tv_wallet_ok"
+        app:layout_constraintTop_toTopOf="@+id/tv_wallet_ok" />
 
     <TextView
-        android:id="@+id/tv_genre_ok"
+        android:id="@+id/tv_wallet_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="18dp"

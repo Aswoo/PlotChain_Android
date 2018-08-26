@@ -32,7 +32,7 @@
             android:layout_marginTop="8dp"
             android:textSize="12sp"
             android:maxLines="1"
-            android:eplised="end"
+            android:ellipsize="end"
             android:textColor="#868a92"
             tools:text="2018.08.15"
             android:fontFamily="@font/nanumsquareotfregular"

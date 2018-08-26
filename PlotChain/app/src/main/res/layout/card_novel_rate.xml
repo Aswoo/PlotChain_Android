@@ -7,13 +7,17 @@
 
     <TextView
         android:id="@+id/tv_writer_novel"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="14dp"
         android:fontFamily="@font/nanumsquareotfbold"
         android:textColor="#212529"
         android:textSize="16sp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="작품명" />

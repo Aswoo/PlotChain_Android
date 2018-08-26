@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="60dp">
 
@@ -10,7 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:text="전체"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/nanumsquareotfregular"
         android:layout_marginLeft="16dp"/>
 
     <ImageView
@@ -18,8 +21,10 @@
         android:id="@+id/btn_toolbar_sort"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="8dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="4dp"
+        android:src="@drawable/arrow_wh"
         android:layout_toEndOf="@+id/toolbar_text" />
 
 
@@ -28,6 +33,7 @@
         android:id="@+id/btn_toolbar_search"
         android:layout_width="24dp"
         android:layout_height="24dp"
+        android:scaleType="fitXY"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"

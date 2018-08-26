@@ -1,5 +1,7 @@
 package com.example.yunseung_u.plotchain.ui.Fragment;
 
+import android.app.ProgressDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,7 +12,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.yunseung_u.plotchain.R;
 import com.example.yunseung_u.plotchain.application.PlotChainApplication;
@@ -50,14 +55,14 @@ public class LibraryFragment extends Fragment {
     View readnovelView;
     @BindView(R.id.likenovelView)
     View likenovelView;
+    ProgressDialog loading;
 
     @OnClick(R.id.readNovelBtn)
     public void readNovel(){
-
-
         getReadNovelResponse();
-
         state = "read";
+        readnovelBtn.setTextColor(Color.parseColor("#494e55"));
+        likenovelBtn.setTextColor(Color.parseColor("#adb0b7"));
         readnovelView.setVisibility(View.VISIBLE);
         likenovelView.setVisibility(View.GONE);
         readReyclerViewAdapter.setHistoryList(historyList);
@@ -65,25 +70,25 @@ public class LibraryFragment extends Fragment {
     }
     @OnClick(R.id.likenovelBtn)
     public void likeNovel(){
-
-
         heartList.clear();
         getReadNovelResponse();
 
         state = "heart";
+        likenovelBtn.setTextColor(Color.parseColor("#494e55"));
+        readnovelBtn.setTextColor(Color.parseColor("#adb0b7"));
         likenovelView.setVisibility(View.VISIBLE);
         readnovelView.setVisibility(View.GONE);
         readReyclerViewAdapter.setHistoryList(heartList);
         readReyclerViewAdapter.notifyDataSetChanged();
     }
     @BindView(R.id.likenovelBtn)
-    Button likenovelBtn;
+    TextView likenovelBtn;
+    @BindView(R.id.readNovelBtn)
+    TextView readnovelBtn;
 
     @BindView(R.id.libraryRecyclerview)
     RecyclerView libraryRecyclerview;
 
-    @BindView(R.id.avloading)
-    AVLoadingIndicatorView avi;
 
     ReadReyclerViewAdapter readReyclerViewAdapter;
 
@@ -101,12 +106,16 @@ public class LibraryFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+        //requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         View view = inflater.inflate(R.layout.fragment_library, container, false);
+
+
         mUnbinder = ButterKnife.bind(this, view);
         baseApiService = UtilsApi.getAPIService();
         state = "read";
         heartList = new ArrayList<>();
-        avi.setIndicator( "LineScaleIndicator");
+        //avi.setIndicator( "LineScaleIndicator");
         readReyclerViewAdapter = new ReadReyclerViewAdapter(historyList, getContext(), new ReadReyclerViewAdapter.HistoryAdapterListener() {
             @Override
             public void heartOnClick(View v, int position) {
@@ -204,15 +213,16 @@ public class LibraryFragment extends Fragment {
 
 
     public void getReadNovelResponse(){
+        //loading = new ProgressDialog(getContext(),R.style.MyAlertDialogStyle);
+        loading = ProgressDialog.show(getContext(), null, "Login...", true, false);
 
-        avi.show();
+        //avi.show();
 
         User user = PlotChainApplication.getCurrentUser();
 
         baseApiService.getReadNovel(user.getSession()).enqueue(new Callback<ReadGetResponse>() {
             @Override
             public void onResponse(Call<ReadGetResponse> call, Response<ReadGetResponse> response) {
-
                 if(response.isSuccessful()){
                     //avi.hide();
                     ReadGetResponse readGetResponse = response.body();
@@ -231,11 +241,13 @@ public class LibraryFragment extends Fragment {
                     }
                     readReyclerViewAdapter.notifyDataSetChanged();
                 }
+                loading.dismiss();
             }
 
             @Override
             public void onFailure(Call<ReadGetResponse> call, Throwable t) {
                 Log.d("Fail getREADNOVELS!!", "FAIL FAIL FAIL");
+                loading.dismiss();
             }
         });
 

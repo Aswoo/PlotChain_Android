@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -27,19 +27,30 @@
         <item name="android:textColor">@color/gray_text_input_hint</item>
     </style>
 
-    <style name="TextAppearence.TextInputLayout.Black" parent="TextAppearance.AppCompat">
-       <item name="colorControlNormal">#33212529</item>
-        <item name="colorControlActivated">#212529</item>
-
-    </style>
 
     <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
-        <item name="colorControlNormal">#dee0e4</item>
+        <item name="colorControlNormal">#212529</item>
         <item name="colorControlActivated">#212529</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/background_splash</item>
     </style>
+
+    <style name="TextAppearence.TextInputLayout.Black" parent="TextAppearance.AppCompat">
+        <item name="colorControlNormal">#adb0b7</item>
+        <item name="colorControlActivated">@android:color/black</item>
+        <item name="colorAccent">@android:color/black</item>
+        <item name="android:textColorHint">#adb0b7</item>
+
+    </style>
+
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+
+
 
 </resources>

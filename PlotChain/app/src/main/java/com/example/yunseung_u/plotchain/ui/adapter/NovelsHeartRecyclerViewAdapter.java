@@ -61,7 +61,10 @@ public class NovelsHeartRecyclerViewAdapter extends RecyclerView.Adapter<NovelsH
         holder.episodeCount.setText(novelInfo.getEpisodeCount()+"화");
         holder.novelTitle.setText(novelInfo.getName());
         Double heart = novelInfo.getHeart();
-        holder.episodeHeartRate.setText(String.valueOf(heart/totalHeart * 100));
+        heart = heart / totalHeart;
+        heart = heart * 100;
+        String Sum = String.format("%.2f",heart);
+        holder.episodeHeartRate.setText(Sum);
     }
 
     @Override

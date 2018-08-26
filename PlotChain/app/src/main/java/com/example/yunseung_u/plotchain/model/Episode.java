@@ -15,7 +15,7 @@ public class Episode {
     @SerializedName("session")
     private String session;
     @Expose
-    @SerializedName("createDate")
+    @SerializedName("createdDate")
     private String createData;
     @Expose
     @SerializedName("id")

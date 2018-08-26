@@ -2,6 +2,7 @@ package com.example.yunseung_u.plotchain.ui.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -38,6 +39,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.internal.Utils;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,12 +49,14 @@ import retrofit2.http.Body;
 public class WriteNovelAcitvity extends AppCompatActivity {
 
 
-
-    BaseApiService mApiService;;
+    BaseApiService mApiService;
+    ;
     List<String> dataset = null;
-    HashMap<String,String> hashMap = null;
+    HashMap<String, String> hashMap = null;
     String currentNovelTitle = "";
     int currentNovelIndex = 0;
+
+    ProgressDialog loading;
 
 
     @BindView(R.id.btn_write_cancel)
@@ -70,51 +74,51 @@ public class WriteNovelAcitvity extends AppCompatActivity {
     //ProgressDialog loading;
 
     @OnClick(R.id.btn_write_cancel)
-    public void onClickCancel(){
-        finish();
+    public void onClickCancel() {
+        super.onBackPressed();
     }
+
     @OnClick(R.id.btn_write_check)
-    public void registerNovelOnClick(){
+    public void registerNovelOnClick() {
+        loading = ProgressDialog.show(this, null, "Loading...", true, false);
 
-        //loading = ProgressDialog.show(this, null, "Login...", true, false);
-            User user = PlotChainApplication.getCurrentUser();
-            String name = etSubtitle.getText().toString();
-            String content = etMain.getText().toString();
+        User user = PlotChainApplication.getCurrentUser();
+        String name = etSubtitle.getText().toString();
+        String content = etMain.getText().toString();
 
-            Episode episode = new Episode(name,content);
-            //episode.setSession(user.getSession());
-            currentNovelTitle = dataset.get(currentNovelIndex);
-            String id = hashMap.get(currentNovelTitle);
+        Episode episode = new Episode(name, content);
+        //episode.setSession(user.getSession());
+        currentNovelTitle = dataset.get(currentNovelIndex);
+        String id = hashMap.get(currentNovelTitle);
 
-          mApiService.registerEpisode(id,episode,user.getSession())
-                    .enqueue(new Callback<ResponseBody>() {
-                        @Override
-                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                            //loading.hide();
-                            if (response.isSuccessful()){
-                                Log.d("TAG",response.toString());
-                                startActivity(new Intent(WriteNovelAcitvity.this, MainActivity.class)
-                                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                            }
+        mApiService.registerEpisode(id, episode, user.getSession())
+                .enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        loading.dismiss();
+
+                        if (response.isSuccessful()) {
+                            Log.d("TAG", response.toString());
+                            WriteNovelAcitvity.super.onBackPressed();
                         }
 
-                        @Override
-                        public void onFailure(Call<ResponseBody> call, Throwable t) {
-                            //loading.hide();
-                            //loading.stop();
-                        }
-                    });
+                    }
 
-        }
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        loading.dismiss();
+                    }
+                });
+
+    }
 
     @OnClick(R.id.btn_write_intro)
-    public void moveToIntroPage(){
+    public void moveToIntroPage() {
 
-        Intent intent=new Intent(WriteNovelAcitvity.this,WriteIntroActivity.class);
+        Intent intent = new Intent(WriteNovelAcitvity.this, WriteIntroActivity.class);
         startActivity(intent);
         //startActivityForResult();
     }
-
 
 
     @Override
@@ -128,7 +132,6 @@ public class WriteNovelAcitvity extends AppCompatActivity {
         mApiService = UtilsApi.getAPIService();
         checkbtn.setColorFilter(this.getResources().getColor(R.color.white));
         cancelbtn.setColorFilter(this.getResources().getColor(R.color.white));
-        loadSpinner();
 
         novelSpinner.setOnSpinnerItemClickListener(new AwesomeSpinner.onSpinnerItemClickListener<String>() {
             @Override
@@ -140,24 +143,33 @@ public class WriteNovelAcitvity extends AppCompatActivity {
         });
 
         //initSpinner(dataset);
-
     }
-    public void loadSpinner(){
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadSpinner();
+    }
+
+    public void loadSpinner() {
         User user = PlotChainApplication.getCurrentUser();
-        mApiService.getMyNovelList(user.getSession(),user.getmNickname())
+        mApiService.getMyNovelList(user.getSession(), user.getmNickname())
                 .enqueue(new Callback<NovelGetResponse>() {
                     @Override
                     public void onResponse(Call<NovelGetResponse> call, Response<NovelGetResponse> response) {
-                        NovelGetResponse novelResponse = response.body();
+                        if(response.isSuccessful()){
 
-                        ArrayList<NovelInfo> result = novelResponse.getArrayList();
+                            NovelGetResponse novelResponse = response.body();
+                            if(novelResponse != null){
+                                ArrayList<NovelInfo> result = novelResponse.getArrayList();
 
-                        for(int i =0;i < result.size();i++){
-                            dataset.add(result.get(i).getName());
-                            hashMap.put(result.get(i).getName(),result.get(i).getId());
+                                for (int i = 0; i < result.size(); i++) {
+                                    dataset.add(result.get(i).getName());
+                                    hashMap.put(result.get(i).getName(), result.get(i).getId());
+                                }
+                                initSpinner(dataset);
+                            }
                         }
-
-                        initSpinner(dataset);
                     }
 
                     @Override
@@ -167,9 +179,14 @@ public class WriteNovelAcitvity extends AppCompatActivity {
                 });
     }
 
-    public void initSpinner(List<String> myNovels){
+    @Override
+    public void onBackPressed() {
+        //F
+    }
+
+    public void initSpinner(List<String> myNovels) {
         dataset = myNovels;
-        ArrayAdapter<String> categoriesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, dataset);
+        ArrayAdapter<String> categoriesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataset);
         novelSpinner.setAdapter(categoriesAdapter);
 
     }

@@ -21,6 +21,25 @@ public class User {
     @Expose
     @SerializedName("session")
     private String mSession;
+    @Expose
+    @SerializedName("address")
+    private String mAddress;
+
+    public String getmSession() {
+        return mSession;
+    }
+
+    public void setmSession(String mSession) {
+        this.mSession = mSession;
+    }
+
+    public String getmAddress() {
+        return mAddress;
+    }
+
+    public void setmAddress(String mAddress) {
+        this.mAddress = mAddress;
+    }
 
     public String getSession() {
         return mSession;

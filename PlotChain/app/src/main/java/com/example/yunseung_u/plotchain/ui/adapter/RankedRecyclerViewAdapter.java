@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import com.example.yunseung_u.plotchain.R;
 import com.example.yunseung_u.plotchain.model.Novel;
 import com.example.yunseung_u.plotchain.model.NovelInfo;
+import com.example.yunseung_u.plotchain.ui.Fragment.HomeFragment;
 import com.example.yunseung_u.plotchain.ui.activity.NovelInfoPageAcitivty;
 
 import java.util.ArrayList;
@@ -27,6 +28,20 @@ public class RankedRecyclerViewAdapter extends RecyclerView.Adapter<RankedRecycl
 
     //vars
     private ArrayList<NovelInfo> mNovels;
+
+
+
+
+    private Double totalHeart;
+
+    public Double getTotalHeart() {
+        return totalHeart;
+    }
+
+    public void setTotalHeart(Double totalHeart) {
+        this.totalHeart = totalHeart;
+    }
+
     private Context mContext;
 
     public ArrayList<NovelInfo> getmNovels() {
@@ -57,15 +72,19 @@ public class RankedRecyclerViewAdapter extends RecyclerView.Adapter<RankedRecycl
         holder.novelWriter.setText(novelInfo.getAuthor());
         holder.novelEpisode.setText(novelInfo.getEpisodeCount()+"화");
         holder.novelThumbnail.setBackgroundColor(Color.parseColor(novelInfo.getColor()));
-        holder.novelShareholdingView.setText(novelInfo.getHeart().toString());
+        Double heartRate = novelInfo.getHeart()/totalHeart*100;
+        String heart = String.format("%.2f",heartRate);
+        holder.novelShareholdingView.setText(heart+"%");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, NovelInfoPageAcitivty.class);
                 intent.putExtra("id",novelInfo.getId());
+                mContext.startActivity(intent);
             }
         });
+
 
     }
 

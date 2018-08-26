@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="312dp"
+    android:layout_height="185dp">
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nanumsquareotfregular"
+
+        android:text="지갑 주소 변경"
+        android:textColor="#212529"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_wallet_address"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:theme="@style/EditTextStyle"
+        android:background="@drawable/edittextborder"
+        android:ellipsize="end"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        app:layout_constraintEnd_toStartOf="@+id/tv_wallet_clip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
+    <TextView
+        android:id="@+id/tv_wallet_cancle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nanumsquareotfbold"
+        android:paddingBottom="9dp"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="9dp"
+        android:text="CANCEL"
+
+        android:textColor="#343a40"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_wallet_ok"
+        app:layout_constraintEnd_toStartOf="@+id/tv_wallet_ok"
+        app:layout_constraintTop_toTopOf="@+id/tv_wallet_ok" />
+
+    <TextView
+        android:id="@+id/tv_wallet_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="34dp"
+        android:fontFamily="@font/nanumsquareotfbold"
+
+        android:paddingBottom="9dp"
+        android:paddingLeft="27dp"
+        android:paddingRight="27dp"
+        android:paddingTop="9dp"
+        android:text="OK"
+        android:textColor="#343a40"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_genre_gl" />
+
+    <TextView
+        android:id="@+id/tv_wallet_clip"
+        android:layout_width="54dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="16dp"
+        android:background="#5c69fa"
+        android:fontFamily="@font/nanumsquareotfbold"
+        android:gravity="center"
+        android:text="복사"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_wallet_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_wallet_address" />
+
+
+</android.support.constraint.ConstraintLayout>

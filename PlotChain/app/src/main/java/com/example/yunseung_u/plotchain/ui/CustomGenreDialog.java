@@ -4,15 +4,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.view.View;
-import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.yunseung_u.plotchain.R;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -183,7 +178,7 @@ public class CustomGenreDialog extends Dialog{
         }
     }
 
-    @OnClick(R.id.tv_genre_ok)
+    @OnClick(R.id.tv_wallet_ok)
     public void onClickOk(){
 
          int total = (isFantasy + isRomance + isGL
